@@ -11,8 +11,8 @@ public class ReadPropertiesController {
     private String name;
 
     @RequestMapping("/echo")
-    public String echo() {
-        return "echo: " + name;
+    public String echo(@RequestParam String id, @RequestParam(value = "cls", defaultValue = "100") String cls) {
+        return "echo: " + name + id + "-" + cls;
     }
 
 }
