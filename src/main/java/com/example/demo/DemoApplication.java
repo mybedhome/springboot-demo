@@ -6,20 +6,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class DemoApplication {
-
+	// 启动类中@Value注解无效，获取不到注入的值
 	@Value("${name}")
-	private String name;
+	private static String name = "jack wu";
 
 	DemoApplication() {
-		echo();
+		System.out.println("运行构造方法");
 	}
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(DemoApplication.class, args);
+		echo();
 	}
 
-	public void echo() {
+	public static void echo() {
 		System.out.println("name==" + name);
 	}
 }
